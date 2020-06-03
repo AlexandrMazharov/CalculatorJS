@@ -17,6 +17,7 @@ body {
 
 .calc .label {
   padding: 10px;
+  text-align: center;
   font-size: 3em;
   color: white;
 }

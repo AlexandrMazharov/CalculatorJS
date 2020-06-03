@@ -1,6 +1,6 @@
-let keys = document.querySelectorAll("calculator span");
-let operations = ["+", "-", "*", "/"];
-let decimalAdded = false;
+//let keys = document.querySelectorAll("calculator span");
+//let operations = ["+", "-", "*", "/"];
+//let decimalAdded = false;
 /*
 for (let i = 0; i < keys.length; i++) {
   keys[i].onclick = function (event) {
@@ -26,31 +26,83 @@ let old = "";
 let result = "";
 let operand = "";
 let keyboard = document.getElementById("keyboard");
-
-keyboard.onclick = function (event) {
-  let target = event.target;
-  if (target.tagName != "span") {
-    if (isOperand(target.innerHTML)) {
-      //ОПЕРАНД
-      //если вводят операнд
-      if(current!=""){
+function main(newItem) {
+  if (isOperand(newItem)) {
+    //ОПЕРАНД
+    //если вводят операнд
+    if (current != "") {
       old = current;
-      operand = target.innerHTML;
+      operand = newItem;
       current = "";
       input_label_old.value = old + operand;
       input_label.value = "";
 
       console.log(old + operand + current);
-
-      //input_label.value=operand; не работает с отрицательными числами
+    } else if (newItem == "-") {
+      current = "-";
+      input_label.value = current;
+    }
+  } else if (newItem == "=") {
+    // РАВНО
+    if (input_label_old.value != "=") {
+      console.log(old + " " + " " + current + " " + operand);
+      if (old != "" && current != "" && operand != "") {
+        switch (operand) {
+          case "+": {
+            result = Number(old) + Number(current);
+            break;
+          }
+          case "-": {
+            result = old - current;
+            break;
+          }
+          case "*": {
+            result = old * current;
+            break;
+          }
+          case "/": {
+            result = (old / current).toFixed(3);
+            break;
+          }
+        }
+        input_label_old.value = input_label_old.value + current + "=" + result;
+        current = result;
+        old = "";
+        operand = "";
+        console.log(result);
+        input_label.value = result;
       }
-      else if (target.innerHTML=="-"){
-        current="-";
-        input_label.value =current;
-      
+    }
+  } else if (isFigure(newItem)) {
+    addFigure(newItem);
+  } else if (newItem == "C") {
+    // ОЧИСТИТЬ
+    console.log("Обнулил");
+    operand = current = old = result = "";
+    input_label.value = input_label_old.value = "";
+  }
+}
+keyboard.onclick = function (event) {
+  let target = event.target;
+  if (target.tagName != "span") {
+    main(target.innerHTML);
+    {
+      /*
+    if (isOperand(target.innerHTML)) {
+      //ОПЕРАНД
+      //если вводят операнд
+      if (current != "") {
+        old = current;
+        operand = target.innerHTML;
+        current = "";
+        input_label_old.value = old + operand;
+        input_label.value = "";
 
+        console.log(old + operand + current);        
+      } else if (target.innerHTML == "-") {
+        current = "-";
+        input_label.value = current;
       }
-
     } else if (target.innerHTML == "=") {
       // РАВНО
       if (input_label_old.value != "=") {
@@ -58,15 +110,15 @@ keyboard.onclick = function (event) {
         if (old != "" && current != "" && operand != "") {
           switch (operand) {
             case "+": {
-              result = (Number(old) + Number(current));
+              result = Number(old) + Number(current);
               break;
             }
             case "-": {
-              result = (old - current);
+              result = old - current;
               break;
             }
             case "*": {
-              result = (old * current);
+              result = old * current;
               break;
             }
             case "/": {
@@ -77,35 +129,44 @@ keyboard.onclick = function (event) {
           input_label_old.value =
             input_label_old.value + current + "=" + result;
           current = result;
-old="";
-operand="";
+          old = "";
+          operand = "";
           console.log(result);
           input_label.value = result;
         }
       }
     } else if (isFigure(target.innerHTML)) {
-      // ЦИФРА
-      // вводят число
-      if (current != result) {
-        current += target.innerHTML;
-      } else {
-        current = target.innerHTML;
-      }
-      console.log("current=" + current);
-      input_label.value = current;
-    } else if (target.innerHTML == "C") {
+      
+      addFigure(target.innerHTML);
+            
+    } else if (newfigure == "C") {
       // ОЧИСТИТЬ
       console.log("Обнулил");
       operand = current = old = result = "";
       input_label.value = input_label_old.value = "";
     }
+  */
+    }
   }
 };
-document.addEventListener("keydown", function(event){
-  alert(event.code);
-switch(event.code){
-  case "KeyZ":
-    alert("0");
+function addFigure(newfigure) {
+  //добавляем цифру
+  if (current != result) {
+    current += newfigure;
+  } else {
+    current = newfigure;
+  }
+  console.log("current=" + current);
+  input_label.value = current;
 }
 
-});
+function moveRect(event) {
+  console.log(event.key);
+  let symbol = event.key;
+  if (event.key == "Enter") symbol = "=";
+  if (event.key == "Escape") symbol = "C";
+
+  main(symbol);
+}
+
+addEventListener("keydown", moveRect);
