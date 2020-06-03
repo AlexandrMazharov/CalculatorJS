@@ -1,0 +1,88 @@
+body {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.calc {
+  box-sizing: border-box;
+  font-family: sans-serif;;
+  background-color: gray;
+  .label{
+    padding: 10px;
+
+    font-size: 3em;    
+    color: white;
+  }
+  .slogan{
+    font-size: 1em;
+    padding: 0 10px;
+    color:white;
+    text-align: right;
+
+
+  }
+  .keyboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    box-sizing: border-box;
+    grid-row-gap: .5em;
+    grid-column-gap: .5em;
+    padding: .5em;
+    margin: 0px;
+    max-width: 450px;
+    span {
+      
+      box-shadow: 0 0 3px 3px gray;
+      padding: .5em;
+      border-radius: 10%;
+      
+      box-sizing: border-box;
+    
+      //height: 2em;
+      //width: 2em;
+      background-color: #fafafa;
+      line-height: 100%;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      font-size: 3em;
+    }
+    div.input-label {
+
+      
+      border-radius: 0px;
+      user-select: none;
+      padding: 0.5em;
+      
+      grid-column-start: 2;
+      grid-column-end: 5;
+      input{
+        background-color: #fafafa;
+        border: none;      
+        width: 100%;
+      }
+      .calc__input {
+        
+        opacity: 1;
+        user-select: none;
+        font-size: 2em;
+
+        box-sizing: border-box;
+      }
+      .calc__input__old {
+        font-size: 1em;
+        height: .9em;//30px;
+        user-select: none;
+        box-sizing: border-box;
+      }
+    }
+  }
+  div.input-label {
+    border-radius: 10%;
+    box-sizing: border-box;
+    display: block;
+    background-color: #fafafa;
+  }
+}

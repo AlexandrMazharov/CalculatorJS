@@ -1,0 +1,117 @@
+body {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.calc {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: sans-serif;
+  background-color: gray;
+}
+
+.calc .label {
+  padding: 10px;
+  font-size: 3em;
+  color: white;
+}
+
+.calc .slogan {
+  font-size: 1em;
+  padding: 0 10px;
+  color: white;
+  text-align: right;
+}
+
+.calc .keyboard {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  grid-row-gap: .5em;
+  grid-column-gap: .5em;
+  padding: .5em;
+  margin: 0px;
+  max-width: 450px;
+}
+
+.calc .keyboard span {
+  -webkit-box-shadow: 0 0 3px 3px gray;
+          box-shadow: 0 0 3px 3px gray;
+  padding: .5em;
+  border-radius: 10%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #fafafa;
+  line-height: 100%;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 3em;
+}
+
+.calc .keyboard div.input-label {
+  border-radius: 0px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  padding: 0.5em;
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  grid-column-end: 5;
+}
+
+.calc .keyboard div.input-label input {
+  background-color: #fafafa;
+  border: none;
+  width: 100%;
+}
+
+.calc .keyboard div.input-label .calc__input {
+  opacity: 1;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-size: 2em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.calc .keyboard div.input-label .calc__input__old {
+  font-size: 1em;
+  height: .9em;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.calc div.input-label {
+  border-radius: 10%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: block;
+  background-color: #fafafa;
+}
+/*# sourceMappingURL=scss_main.css.map */
