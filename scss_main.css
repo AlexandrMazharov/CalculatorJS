@@ -38,17 +38,17 @@ body {
       grid-template-rows: 1fr 1fr 1fr 1fr;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  grid-row-gap: .5em;
-  grid-column-gap: .5em;
-  padding: .5em;
+  grid-row-gap: 0.5em;
+  grid-column-gap: 0.5em;
+  padding: 0.5em;
   margin: 0px;
   max-width: 450px;
 }
 
 .calc .keyboard span {
-  -webkit-box-shadow: 0 0 3px 3px gray;
-          box-shadow: 0 0 3px 3px gray;
-  padding: .5em;
+  -webkit-box-shadow: 3px 3px 1px  3px black;
+          box-shadow: 3px 3px 1px  3px black;
+  padding: 0.5em;
   border-radius: 10%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -68,6 +68,11 @@ body {
   font-size: 3em;
 }
 
+.calc .keyboard span:hover {
+  -webkit-box-shadow: 1px 1px 1px  1px black;
+          box-shadow: 1px 1px 1px  1px black;
+}
+
 .calc .keyboard div.input-label {
   border-radius: 0px;
   -webkit-user-select: none;
@@ -81,6 +86,10 @@ body {
 }
 
 .calc .keyboard div.input-label input {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   background-color: #fafafa;
   border: none;
   width: 100%;
@@ -98,8 +107,9 @@ body {
 }
 
 .calc .keyboard div.input-label .calc__input__old {
+  border: none;
   font-size: 1em;
-  height: .9em;
+  height: 0.9em;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
